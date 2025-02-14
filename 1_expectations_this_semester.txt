@@ -1,0 +1,35 @@
+1. INTRODUCTION
+My name is Rafael Ramos. I want to pursue a career as a Web Developer or Software Engineer because I want to be a programmer someday.
+but I'm not just a programmer, I guess what can I learn from what the prof teaches us in the major I'm taking somehow I know so for me I'm a jack of all trades, 
+except for PM because I'm not good at paper, but I want to learn it the programming languages I know are Python, Java, and JavaScript and the server-side is PHP and xampp for the backend. 
+For now, I'm focusing on one language which is javascript, because it is a broader language for me and we need a lot of time to learn this language. 
+I have little experience in backend development. We previously used PHP and Xampp to create dummy data and connect to the front end.
+
+2. Course Expectation
+What I want to achieve in this course is how to generate logic, especially in the projects we develop,
+because I have the most difficulty with logic, and I don't know how to improve in that part, so I want to learn logic.
+Everything I can learn from our prof I want to learn and I know I will benefit because we are on track when we get out 
+we will be able to use everything they taught especially in programming where we need to learn it for what we are going to do
+A specific skill that I want to learn is everything even if little by little because I know that I need him not only in making 
+the project but in reality. And when I learn from him I want to make my own.
+I think the backend will help me a lot when I pursue being full-stack because the frontend and backend will be done and 
+I need to learn how to connect the backend to the frontend for data it will have a big impact especially when it comes to the career path I want because I want to be a developer in the future.
+
+3. Challenges and Areas for Improvement
+For me, the most challenging thing for us is the creation of logic, especially now that there is a backend we need to focus on 
+that with intention and understand it in a polished way so that when we are the ones who do the activity we know how it works and, 
+I think in order for me to improve, we as a class have a recitation while coding a problem or teach so that even we think about 
+the logic and what are the possible things that can be put in the code. Maybe in the activity, we can learn to make logic 
+that is still in line with what was taught. So that we can get used to thinking and almost all activities are taught and we already 
+have good practices. That's the only thing that I think is a challenge for us, the use of logic in code syntax.
+
+4. Expectations from the Instructor
+My expectation now for you sir is also challenging on your part where you study him and at the same time you teach us, 
+and I think it's more exciting because it seems like we are all the same students and I think it will be a great benefit for us 
+to also learn this backend that will be used, and I think there is not enough time to learn everything but I believe in you sir 
+because we are more on practical and we see the errors in how you handle it and we can adopt him at the same time when it happens to us.
+
+5. Final Thoughts
+What I want to learn now is to be able to solve problems related to what we are studying now in programming. 
+And I want to learn the papers, especially in the capstone because I'm weak there and at the same time 
+I can practice coding and designing which I want to become a hobby.
