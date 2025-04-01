@@ -15,7 +15,7 @@ const server = http.createServer(async (req, res) => {
   const pathname = parsedUrl.pathname; // /create
   const filename = parsedUrl.query.filename; // ?filename=example.txt
   const content = parsedUrl.query.content; // ?content=example content
-  const filepath = path.join(__dirname, filename || "default.txt"); 
+  const filepath = path.join(__dirname, filename || "default.txt");
 
   try {
     if (!filename) {
