@@ -11,7 +11,7 @@ fileEvents.on("fileAction", (action, filename) => {
 });
 
 const server = http.createServer(async (req, res) => {
-  const parsedUrl = url.parse(req.url, true);
+    const parsedUrl = url.parse(req.url, true);
   const pathname = parsedUrl.pathname; // /create
   const filename = parsedUrl.query.filename; // ?filename=example.txt
   const content = parsedUrl.query.content; // ?content=example content
