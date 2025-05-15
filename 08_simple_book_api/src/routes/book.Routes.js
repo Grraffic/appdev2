@@ -7,7 +7,7 @@ const {
   addBook,
   updateBook,
   deleteBook,
-} = require("../Controllers/book.controller");
+} = require("../controllers/book.controller");
 
 router.get("/", getWelcome);
 router.get("/api/books", getAllBooks);

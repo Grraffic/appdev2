@@ -1,60 +1,70 @@
-const { getBooks, saveBooks } = require("../models/bookModels");
+const Book = require("../models/bookModels");
 
 const getWelcome = (req, res) => {
-  res.send("Simple Book API using Node.js and Express");
+  res.send("Simple Book API using Node.js, Express, and MongoDB with Mongoose");
 };
 
-const getAllBooks = (req, res) => {
-  const books = getBooks();
-  res.json(books);
+const getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.find();
+    res.json(books);
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
 };
 
-const getBookById = (req, res) => {
-  const books = getBooks();
-  const book = books.find((b) => b.id === parseInt(req.params.id));
-  if (!book) return res.status(404).json({ message: "Book not found" });
-  res.json(book);
+const getBookById = async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id);
+    if (!book) return res.status(404).json({ message: "Book not found" });
+    res.json(book);
+  } catch (err) {
+    res.status(400).json({ message: "Invalid ID", error: err.message });
+  }
 };
 
-const addBook = (req, res) => {
+const addBook = async (req, res) => {
   const { title, author } = req.body;
+
   if (!title || !author) {
     return res.status(400).json({ message: "Title and author are required" });
   }
 
-  const books = getBooks();
-  const newBook = {
-    id: books.length ? books[books.length - 1].id + 1 : 1,
-    title,
-    author,
-  };
-
-  books.push(newBook);
-  saveBooks(books);
-  res.status(201).json(newBook);
+  try {
+    const newBook = new Book({ title, author });
+    const savedBook = await newBook.save();
+    res.status(201).json(savedBook);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to add book", error: err.message });
+  }
 };
 
-const updateBook = (req, res) => {
-  const books = getBooks();
-  const book = books.find((b) => b.id === parseInt(req.params.id));
-  if (!book) return res.status(404).json({ message: "Book not found" });
+const updateBook = async (req, res) => {
+  try {
+    const { title, author } = req.body;
+    const updatedBook = await Book.findByIdAndUpdate(
+      req.params.id,
+      { title, author },
+      { new: true, runValidators: true }
+    );
 
-  const { title, author } = req.body;
-  if (title) book.title = title;
-  if (author) book.author = author;
+    if (!updatedBook) return res.status(404).json({ message: "Book not found" });
 
-  saveBooks(books);
-  res.json(book);
+    res.json(updatedBook);
+  } catch (err) {
+    res.status(400).json({ message: "Update failed", error: err.message });
+  }
 };
 
-const deleteBook = (req, res) => {
-  let books = getBooks();
-  const index = books.findIndex((b) => b.id === parseInt(req.params.id));
-  if (index === -1) return res.status(404).json({ message: "Book not found" });
+const deleteBook = async (req, res) => {
+  try {
+    const deletedBook = await Book.findByIdAndDelete(req.params.id);
+    if (!deletedBook) return res.status(404).json({ message: "Book not found" });
 
-  const deletedBook = books.splice(index, 1)[0];
-  saveBooks(books);
-  res.json({ message: "Book deleted successfully", book: deletedBook });
+    res.json({ message: "Book deleted successfully", book: deletedBook });
+  } catch (err) {
+    res.status(400).json({ message: "Delete failed", error: err.message });
+  }
 };
 
 module.exports = {
