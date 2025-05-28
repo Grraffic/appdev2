@@ -1,0 +1,71 @@
+### Authentication Endpoints ###
+
+### Sign Up
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "test1user",
+    "email": "test1@example.com",
+    "password": "password123"
+}
+
+### Sign In
+POST http://localhost:3000/api/auth/signin
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password123"
+}
+
+### Book Endpoints ###
+# Note: Replace {{auth_token}} with the token received from signin response
+
+### Get Welcome Message
+GET http://localhost:3000/api/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM3MTFmYTA0MmE4YThkODRhMDhlZTIiLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWF0IjoxNzQ4NDQwMTU4LCJleHAiOjE3NDg1MjY1NTh9.rzsRwa21hI10KFZSDRKp1_ci-e292ME9bsS3SnnKm9U
+
+### Get All Books
+GET http://localhost:3000/api/books
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM3MTFmYTA0MmE4YThkODRhMDhlZTIiLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWF0IjoxNzQ4NDQwMTU4LCJleHAiOjE3NDg1MjY1NTh9.rzsRwa21hI10KFZSDRKp1_ci-e292ME9bsS3SnnKm9U
+
+### Get Book by ID
+GET http://localhost:3000/api/books/6837155869cb545dd0a9b4ad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM3MTFmYTA0MmE4YThkODRhMDhlZTIiLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWF0IjoxNzQ4NDQwMTU4LCJleHAiOjE3NDg1MjY1NTh9.rzsRwa21hI10KFZSDRKp1_ci-e292ME9bsS3SnnKm9U
+
+### Add New Book
+POST http://localhost:3000/api/books
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM3MTFmYTA0MmE4YThkODRhMDhlZTIiLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWF0IjoxNzQ4NDQwMTU4LCJleHAiOjE3NDg1MjY1NTh9.rzsRwa21hI10KFZSDRKp1_ci-e292ME9bsS3SnnKm9U
+Content-Type: application/json
+
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "year": 1925,
+    "genre": "Fiction"
+}
+
+### Update Book
+PATCH http://localhost:3000/api/books/6837155869cb545dd0a9b4ad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM3MTFmYTA0MmE4YThkODRhMDhlZTIiLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWF0IjoxNzQ4NDQwMTU4LCJleHAiOjE3NDg1MjY1NTh9.rzsRwa21hI10KFZSDRKp1_ci-e292ME9bsS3SnnKm9U
+Content-Type: application/json
+
+{
+    "title": "Updated Book Title",
+    "year": 2024
+}
+
+### Delete Book
+DELETE http://localhost:3000/api/books/6837155869cb545dd0a9b4ad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM3MTFmYTA0MmE4YThkODRhMDhlZTIiLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWF0IjoxNzQ4NDQwMTU4LCJleHAiOjE3NDg1MjY1NTh9.rzsRwa21hI10KFZSDRKp1_ci-e292ME9bsS3SnnKm9U
+
+### Usage Instructions ###
+# 1. First run the Sign Up request to create a new user
+# 2. Then run the Sign In request to get the authentication token
+# 3. Copy the token from the signin response
+# 4. Replace {{auth_token}} in the subsequent requests with your actual token
+# 5. Now you can test all the book endpoints with authentication
+
+# Note: The token is valid for 24 hours after signing in
+# Make sure your MongoDB server is running and the JWT_SECRET is set in your .env file
