@@ -34,7 +34,12 @@ const addBook = async (req, res) => {
   }
 
   try {
-    const newBook = new Book({ title, author });
+    // Include userId from authenticated user
+    const newBook = new Book({
+      title,
+      author,
+      userId: req.user.userId,
+    });
     const savedBook = await newBook.save();
 
     // Send email notification asynchronously (don't wait for it to complete)
