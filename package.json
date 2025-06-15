@@ -1,8 +1,11 @@
 {
-  "name": "08_simple_book_api",
+  "name": "simple-book-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A comprehensive Book API with authentication, email notifications, and database seeding",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-email": "node test-email.js",
