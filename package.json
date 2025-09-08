@@ -1,0 +1,45 @@
+{
+  "name": "simple-book-api",
+  "version": "1.0.0",
+  "description": "A comprehensive Book API with authentication, email notifications, and database seeding",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-email": "node test-email.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node seeders/seeder.js",
+    "seed:fresh": "node seeders/seed.js --no-clear",
+    "seed:books": "node -e \"require('./seeders/bookSeeder').seedBooksWithStrategy('balanced', 50).then(() => process.exit(0)).catch(e => {console.error(e); process.exit(1);})\"",
+    "seed:users": "node -e \"require('./seeders/userSeeder').seedUsersWithStrategy('realistic', 10).then(() => process.exit(0)).catch(e => {console.error(e); process.exit(1);})\"",
+    "seed:books:fantasy": "node -e \"require('./seeders/bookSeeder').seedBooksWithStrategy('fantasy', 30).then(() => process.exit(0)).catch(e => {console.error(e); process.exit(1);})\"",
+    "seed:books:classics": "node -e \"require('./seeders/bookSeeder').seedBooksWithStrategy('classics', 20).then(() => process.exit(0)).catch(e => {console.error(e); process.exit(1);})\"",
+    "seed:cli": "node seeders/cli.js",
+    "seed:test": "node test-seeder.js",
+    "seed:verify": "node verify-seeder.js",
+    "seed:help": "node seeders/seed.js --help"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.2",
+    "nodemailer": "^7.0.3",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
